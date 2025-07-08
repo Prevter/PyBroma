@@ -12,9 +12,14 @@ add_custom_command(
 )
 
 add_library(${PROJECT_NAME} MODULE ${CYTHON_SRC})
-
 target_include_directories(${PROJECT_NAME} PRIVATE ${Python3_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE Broma ${Python3_LIBRARIES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
+
+if(WIN32)
+    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".pyd")
+endif()
+
 install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})

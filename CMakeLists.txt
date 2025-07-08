@@ -8,6 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON) # fix for -fPIC
 
 include(cmake/CPM.cmake)
-CPMAddPackage("gh:geode-sdk/broma#26217a4")
+CPMAddPackage("gh:geode-sdk/broma#f1429c1")
 
 add_subdirectory(pybroma)
